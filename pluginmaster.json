@@ -1,0 +1,59 @@
+[
+  {
+    "Author": "NoctusDev",
+    "Name": "Buddy's Buddy",
+    "InternalName": "BuddysBuddy",
+    "AssemblyVersion": "0.1.0.0",
+    "Description": "Buddy's Buddy is a host for small, self-contained modules. Each module is its own mini-plugin with its own tab, settings and commands, and can be enabled or disabled independently.\n\nBuddy's Bag empties the chocobo saddlebag into your inventory.\nBuddy's Chest tallies the whole free company chest and withdraws every unit of a chosen item.\nBuddy's Slaves tallies every retainer and withdraws a shopping list of items, taking as much as each retainer can supply before moving on.",
+    "Punchline": "A pocketful of small plugins in one.",
+    "ApplicableVersion": "any",
+    "DalamudApiLevel": 15,
+    "Tags": [
+      "utility",
+      "modules",
+      "qol",
+      "inventory",
+      "retainer"
+    ],
+    "RepoUrl": "https://github.com/NoctusDev/buddys-buddy",
+    "DownloadLinkInstall": "https://github.com/NoctusDev/buddys-buddy/releases/latest/download/BuddysBuddy.zip",
+    "DownloadLinkUpdate": "https://github.com/NoctusDev/buddys-buddy/releases/latest/download/BuddysBuddy.zip",
+    "DownloadLinkTesting": "https://github.com/NoctusDev/buddys-buddy/releases/latest/download/BuddysBuddy.zip",
+    "IsHide": false,
+    "IsTestingExclusive": false,
+    "AcceptsFeedback": true,
+    "LoadRequiredState": 0,
+    "LoadSync": false,
+    "CanUnloadAsync": false,
+    "LoadPriority": 0,
+    "DownloadCount": 0
+  },
+  {
+    "Author": "NoctusDev",
+    "Name": "MarketTraveler",
+    "InternalName": "MarketTraveler",
+    "AssemblyVersion": "1.1.0.0",
+    "Description": "Buying, not selling. Give MarketTraveler a shopping list with a price ceiling per item and it works the market board for you: searches each item, skips anything over your ceiling, and reports what it actually bought — counted from your bags, not from the listing.\n\nUses Lifestream for world travel and vnavmesh for pathing when they are installed.",
+    "Punchline": "Cross-world shopping made easy.",
+    "ApplicableVersion": "any",
+    "DalamudApiLevel": 15,
+    "Tags": [
+      "market board",
+      "economy",
+      "utility",
+      "buying"
+    ],
+    "RepoUrl": "https://github.com/NoctusDev/MarketTraveler",
+    "DownloadLinkInstall": "https://github.com/NoctusDev/MarketTraveler/releases/latest/download/MarketTraveler.zip",
+    "DownloadLinkUpdate": "https://github.com/NoctusDev/MarketTraveler/releases/latest/download/MarketTraveler.zip",
+    "DownloadLinkTesting": "https://github.com/NoctusDev/MarketTraveler/releases/latest/download/MarketTraveler.zip",
+    "IsHide": false,
+    "IsTestingExclusive": false,
+    "AcceptsFeedback": true,
+    "LoadRequiredState": 0,
+    "LoadSync": false,
+    "CanUnloadAsync": false,
+    "LoadPriority": 0,
+    "DownloadCount": 0
+  }
+]

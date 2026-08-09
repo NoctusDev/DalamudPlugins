@@ -1,0 +1,49 @@
+name: Update pluginmaster
+
+# Rebuilds pluginmaster.json from every repo listed in plugins.json.
+#
+# Runs daily rather than on release, because "on release" would need each plugin repo to hold
+# a PAT with write access to this one. A day's lag on a version bump is cheaper than that,
+# and "Run workflow" gives you an instant rebuild whenever you do not want to wait.
+on:
+  schedule:
+    - cron: '17 6 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'plugins.json'
+      - 'scripts/build_pluginmaster.py'
+      - '.github/workflows/update.yml'
+  # Optional: a plugin repo can fire this immediately after publishing a release with
+  #   gh api repos/NoctusDev/DalamudPlugins/dispatches -f event_type=plugin-released
+  # using a PAT stored as a secret in that repo. Not required; the schedule covers it.
+  repository_dispatch:
+    types: [plugin-released]
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build pluginmaster.json
+        env:
+          # Raises the GitHub API rate limit from 60/hour to 1000/hour. Read-only use.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/build_pluginmaster.py
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- pluginmaster.json; then
+            echo "no change"
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pluginmaster.json
+          git commit -m "Update pluginmaster.json"
+          git push
